@@ -10,6 +10,7 @@ export class AddWordpressComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $('select').selectpicker();
   }
 
 }

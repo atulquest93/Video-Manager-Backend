@@ -5,14 +5,18 @@ import { AppComponent } from './app.component';
 import { AddStorageComponent } from './application/storage/add-storage/add-storage.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AddWordpressComponent } from './application/wordpress/add-wordpress/add-wordpress.component';
-import { ViewWordpressComponent } from './application/wordpress/view-wordpress/view-wordpress.component'
+import { ViewWordpressComponent } from './application/wordpress/view-wordpress/view-wordpress.component';
+import { ViewStorageComponent } from './application/storage/view-storage/view-storage.component';
+import { ViewFilesComponent } from './application/files/view-files/view-files.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     AddStorageComponent,
     AddWordpressComponent,
-    ViewWordpressComponent
+    ViewWordpressComponent,
+    ViewStorageComponent,
+    ViewFilesComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule

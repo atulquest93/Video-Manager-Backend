@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { AddStorageComponent } from '../application/storage/add-storage/add-storage.component';
 import { AddWordpressComponent } from '../application/wordpress/add-wordpress/add-wordpress.component';
 import { ViewWordpressComponent } from '../application/wordpress/view-wordpress/view-wordpress.component';
+import { ViewStorageComponent } from '../application/storage/view-storage/view-storage.component';
 
 const routes : Routes = [
 
@@ -13,6 +14,10 @@ const routes : Routes = [
     path : 'wordpress/addWordpress', component : AddWordpressComponent
   },{
     path : 'wordpress/viewWordpress', component : ViewWordpressComponent
+  },{
+    path : 'storage/addStorage', component : AddStorageComponent
+  }, {
+    path : 'storage/viewStorage', component : ViewStorageComponent
   }
 
 ];

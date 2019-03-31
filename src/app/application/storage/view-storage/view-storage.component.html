@@ -1,3 +1,57 @@
-<p>
-  view-storage works!
-</p>
+<div class="row" style="margin-bottom:50px;">
+
+  <!-- Dashboard Box -->
+  <div class="col-xl-12">
+    <div class="dashboard-box margin-top-0">
+
+      <!-- Headline -->
+      <div class="headline">
+        <h3><i class="icon-material-outline-business-center"></i> Connected Storage Accounts</h3>
+      </div>
+
+      <div class="content">
+        <ul class="dashboard-box-list">
+          <li *ngFor="let storage of state.connectedStorages">
+            <!-- Job Listing -->
+            <div class="job-listing">
+
+              <!-- Job Listing Details -->
+              <div class="job-listing-details">
+
+                <!-- Logo -->
+                <!-- 											<a href="#" class="job-listing-company-logo">
+                    <img src="images/company-logo-05.png" alt="">
+                  </a> -->
+
+                <!-- Details -->
+                <div class="job-listing-description">
+                  <h3 class="job-listing-title"><i class="icon-feather-archive
+                    "></i>    {{storage.name}}</h3>
+
+                  <!-- Job Listing Footer -->
+                  <div class="job-listing-footer">
+                    <ul>
+                        <li><i class="icon-material-outline-folder-shared"></i>  {{storage.type}}</li>
+                      <li><i class="icon-material-outline-archive"></i> {{storage.bucketName}}</li>
+                      <li><i class="icon-material-outline-account-balance-wallet"></i>  {{storage.fileName}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="buttons-to-right always-visible">
+              <a href="" class="button ripple-effect"><i
+                  class="icon-material-outline-history"></i> Refresh Files</a>
+              <a style="margin-left:10px;" href="#" class="button gray ripple-effect ico" data-tippy-placement="top" data-tippy=""
+                data-original-title="Remove"><i class="icon-feather-trash-2"></i></a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

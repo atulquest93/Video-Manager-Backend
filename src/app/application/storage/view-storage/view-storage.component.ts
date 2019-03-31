@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManagerServiceService } from 'src/app/services/manager-service.service';
 
 @Component({
   selector: 'app-view-storage',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewStorageComponent implements OnInit {
 
-  constructor() { }
+  state = {
+    connectedStorages : []
+  }
+  constructor(private service : ManagerServiceService) { }
 
   ngOnInit() {
+    this.service.getConnectedStorage().subscribe((data) => {
+      
+      this.state.connectedStorages = data;
+      console.log(this.state.connectedStorages);
+    });
   }
 
 }

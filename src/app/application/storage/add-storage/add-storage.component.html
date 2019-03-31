@@ -1,3 +1,87 @@
-<p>
-  add-storage works!
-</p>
+<!-- Row -->
+<div class="row" style="margin-bottom:50px;">
+  <!-- Dashboard Box -->
+  <div class="col-xl-12">
+
+    <div class="dashboard-box margin-top-0">
+
+      <!-- Headline -->
+      <div class="headline">
+        <h3><i class="icon-feather-folder-plus"></i> Add New Storage</h3>
+      </div>
+
+      <div *ngIf="isProcessComplete" class="row">
+        <div class="col-xl-12">
+            <div  class="notification success closeable">
+                <p>Storage Connected Successfully !</p>
+                <a (click)="isProcessComplete = false" class="close"></a>
+              </div>
+        </div>
+      </div>
+      <div class="content with-padding padding-bottom-10">
+
+        <form (ngSubmit)="addStorage(f)" #f="ngForm">
+
+          <div class="row">
+
+            <div class="col-xl-4">
+              <div class="submit-field">
+                <h5>Name</h5>
+                <input name="storageName" ngModel type="text" class="with-border" placeholder="Storage name" required>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="submit-field">
+                <h5>Bucket Name</h5>
+                <input name="bucketName" ngModel type="text" class="with-border" placeholder="Connected Bucket Name" required>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="submit-field">
+                <h5>Select Storage Type</h5>
+                <select name="storageType" ngModel title="Select Type">
+                  <option value="Google" selected>Google Buckets</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-12">
+              <div class="submit-field">
+                <h5>Upload Service Account File</h5>
+                <div class="uploadButton margin-top-30">
+                  <input class="uploadButton-input" name="file" type="file" id="file"
+                    (change)="handleFileInput($event.target.files)">
+                  <label *ngIf="uploadedFileName.length == 0" class="uploadButton-button ripple-effect"
+                    for="file">Upload Files</label>
+                  <div style="margin-top:10px" *ngIf="uploadedFileName.length != 0" class="verified-badge"></div>
+                  <span class="uploadButton-file-name">File must be in .json format.</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-xl-12">
+              <div class="submit-field">
+                <div class="uploadButton margin-top-30">
+                  <input class="uploadButton-input" type="submit" id="upload" multiple />
+                  <label class="uploadButton-button ripple-effect" for="upload">Save Storage</label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- End Dashboard box -->
+</div>
+<!-- End row -->

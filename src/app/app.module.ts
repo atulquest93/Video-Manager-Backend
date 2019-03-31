@@ -8,6 +8,8 @@ import { AddWordpressComponent } from './application/wordpress/add-wordpress/add
 import { ViewWordpressComponent } from './application/wordpress/view-wordpress/view-wordpress.component';
 import { ViewStorageComponent } from './application/storage/view-storage/view-storage.component';
 import { ViewFilesComponent } from './application/files/view-files/view-files.component'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { ViewFilesComponent } from './application/files/view-files/view-files.co
     ViewFilesComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule
+    BrowserModule, AppRoutingModule, HttpClientModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

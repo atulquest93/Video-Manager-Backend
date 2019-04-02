@@ -13,7 +13,9 @@ export class ManagerServiceService {
   endpoints = {
     uploadKey : '/uploadServiceKeys',
     saveStorage : '/addGoogleAccounts',
-    getConnectedStorage : '/getGoogleAccounts'
+    getConnectedStorage : '/getGoogleAccounts',
+    uploadFilesGeneric : '/uploadFilesGeneric',
+    getUploadedFiles : '/getFiles'
   };
 
   constructor(private http : HttpClient) {
@@ -34,19 +36,30 @@ export class ManagerServiceService {
        }));
   }
 
+  uploadFiles(fileToUpload : File, type : any, fileName : any) : Observable<any>{
+    const formData : FormData = new FormData();
+    formData.append("files", fileToUpload, fileToUpload.name);
+    formData.append("type", type);
+    formData.append("fileName", fileName);
+    return this.http.post(this.getEndpoint('uploadFilesGeneric'), formData, {headers : {}});
+  }
+
   saveStorage(data : Object) : Observable<any> {
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
     let options = { headers: headers };
-    console.log(data);
     return this.http.post(this.getEndpoint('saveStorage'), data, options);
   }
 
   getConnectedStorage() : Observable<any> {
-
     return this.http.get(this.getEndpoint('getConnectedStorage'));
   }
+
+  getUploadedFiles(type: String):Observable<any>{
+    return this.http.get(this.getEndpoint('getUploadedFiles')+"?type="+type);
+  }
+  
 
 }

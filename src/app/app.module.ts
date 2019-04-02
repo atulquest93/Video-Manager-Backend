@@ -10,6 +10,7 @@ import { ViewStorageComponent } from './application/storage/view-storage/view-st
 import { ViewFilesComponent } from './application/files/view-files/view-files.component'
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { UploadFilesComponent } from './application/wordpress/upload-files/upload-files.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     AddWordpressComponent,
     ViewWordpressComponent,
     ViewStorageComponent,
-    ViewFilesComponent
+    ViewFilesComponent,
+    UploadFilesComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, FormsModule

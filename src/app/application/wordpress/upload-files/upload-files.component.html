@@ -1,0 +1,54 @@
+<div class="row" style="margin-bottom:50px;">
+
+  <!-- Dashboard Box -->
+  <div class="col-xl-12">
+    <div class="dashboard-box margin-top-0">
+
+      <!-- Headline -->
+      <div class="headline">
+        <h3><i class="icon-material-outline-business-center"></i> Upload Files</h3>
+      </div>
+
+      <div *ngIf="state.isUploadComplete" class="row">
+          <div class="col-xl-12">
+              <div  class="notification success closeable">
+                  <p>File uploaded Successfully ! You can use file now.</p>
+                  <a (click)="state.isUploadComplete = false" class="close"></a>
+                </div>
+          </div>
+        </div>
+
+      <div class="content with-padding padding-bottom-10">
+        <div class="row">
+
+            <div class="col-xl-6">
+                <div class="submit-field">
+                    <h5>Select File Type</h5>
+                    <select [(ngModel)]="selected" (change)="selectFileType($event.target.value)" title="Select File Type">
+                      <option value="" selected>Select File Type</option>
+                      <option value="title">Title File</option>
+                      <option value="description">Description File</option>
+                    </select>
+                  </div>
+            </div>
+
+            <div class="col-xl-12">
+                <div class="submit-field">
+                  <h5>Upload Title / Deescription Files</h5>
+                  <div class="uploadButton margin-top-30">
+                    <input class="uploadButton-input" name="file" type="file" id="file"
+                      (change)="handleFileInput($event.target.files)">
+                    <label *ngIf="!state.isUploadComplete" class="uploadButton-button ripple-effect"
+                      for="file">Upload Files</label>
+                    <div *ngIf="state.isUploadComplete" style="margin-top:10px" class="verified-badge"></div>
+                    <span class="uploadButton-file-name">File must be in .txt format.</span>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

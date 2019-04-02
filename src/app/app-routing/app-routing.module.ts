@@ -5,6 +5,7 @@ import { AddStorageComponent } from '../application/storage/add-storage/add-stor
 import { AddWordpressComponent } from '../application/wordpress/add-wordpress/add-wordpress.component';
 import { ViewWordpressComponent } from '../application/wordpress/view-wordpress/view-wordpress.component';
 import { ViewStorageComponent } from '../application/storage/view-storage/view-storage.component';
+import { UploadFilesComponent } from '../application/wordpress/upload-files/upload-files.component';
 
 const routes : Routes = [
 
@@ -18,6 +19,8 @@ const routes : Routes = [
     path : 'storage/addStorage', component : AddStorageComponent
   }, {
     path : 'storage/viewStorage', component : ViewStorageComponent
+  },{
+    path : 'wordpress/uploadFiles', component : UploadFilesComponent
   }
 
 ];

@@ -11,95 +11,99 @@
       </div>
 
       <div class="content with-padding padding-bottom-10">
-        <div class="row">
+        <form (ngSubmit)="addWordpress(f)" #f="ngForm" >
 
-          <div class="col-xl-4">
-            <div class="submit-field">
-              <h5>Wordpress Name</h5>
-              <input type="text" class="with-border" placeholder="Wordpress name">
+          <div class="row">
+
+            <div class="col-xl-4">
+              <div class="submit-field">
+                <h5>Wordpress Name</h5>
+                <input ngModel name="wpName" type="text" class="with-border" placeholder="Wordpress name">
+              </div>
             </div>
-          </div>
 
-          <div class="col-xl-4">
+            <div class="col-xl-4">
               <div class="submit-field">
                 <h5>API Url</h5>
-                <input type="text" class="with-border" placeholder="API Url">
+                <input ngModel name="apiURL" type="text" class="with-border" placeholder="API Url">
               </div>
-          </div>
+            </div>
 
-          <div class="col-xl-4">
+            <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Authorization Key</h5>
-                <input type="text" class="with-border" placeholder="Authorization Key">
+                <input ngModel name="authKey" type="text" class="with-border" placeholder="Authorization Key">
               </div>
-          </div>
+            </div>
 
-          <div class="col-xl-4">
+            <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Video Meta</h5>
-                <input type="text" class="with-border" placeholder="Video Meta Name">
+                <input ngModel name="videoMeta" type="text" class="with-border" placeholder="Video Meta Name">
               </div>
-          </div>
+            </div>
 
-          <div class="col-xl-4">
+            <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Tag List</h5>
-                <input type="text" class="with-border" placeholder="Tag List">
+                <input ngModel name="tagList" type="text" class="with-border" placeholder="Tag List">
               </div>
-          </div>
+            </div>
 
-          <div class="col-xl-4">
+            <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Category List</h5>
-                <input type="text" class="with-border" placeholder="Category List">
+                <input ngModel name="catList" type="text" class="with-border" placeholder="Category List">
               </div>
-          </div>
+            </div>
 
-          <div class="col-xl-4" style="vertical-align: middle;  line-height: 120px;">
+            <div class="col-xl-4" style="vertical-align: middle;  line-height: 120px;">
               <div class="checkbox">
-                <input type="checkbox" id="two-step" checked="">
+                <input ngModel name="languageIsRequired" type="checkbox" id="two-step" checked="">
                 <label for="two-step"><span class="checkbox-icon"></span> Language Conversion</label>
               </div>
-          </div>
+            </div>
 
-          <div class="col-xl-4">
+            <div class="col-xl-4">
               <div class="submit-field">
-                  <h5>Source Language</h5>
-                  <select class="selectpicker with-border" data-size="7" title="Select Language">
-                    <option>en-US</option>
-                    <option>en-RU</option>
-                  </select>
-                </div>
-          </div>
+                <h5>Source Language</h5>
+                <select ngModel name="sourceLang" class="selectpicker with-border" data-size="7"
+                  title="Select Language">
+                  <option>en-US</option>
+                  <option>en-RU</option>
+                </select>
+              </div>
+            </div>
 
-          <div class="col-xl-4">
+            <div class="col-xl-4">
               <div class="submit-field">
-                  <h5>Source Language</h5>
-                  <select title="Select Language">
-                    <option>en-US</option>
-                    <option>en-RU</option>
-                  </select>
-                </div>
-          </div>
+                <h5>Source Language</h5>
+                <select ngModel name="destLang" title="Select Language">
+                  <option>en-US</option>
+                  <option>en-RU</option>
+                </select>
+              </div>
+            </div>
 
-          <div class="col-xl-4" style="vertical-align: middle;  line-height: 120px;">
+            <div class="col-xl-4" style="vertical-align: middle;  line-height: 120px;">
               <div class="checkbox">
-                <input type="checkbox" id="suffix" checked="">
+                <input ngModel name="suffixReq" type="checkbox" id="suffix" checked="">
                 <label for="suffix"><span class="checkbox-icon"></span> Append Suffix</label>
               </div>
-          </div>
+            </div>
 
-          <div class="col-xl-8">
+            <div class="col-xl-8">
               <div class="submit-field">
                 <h5>Suffix List</h5>
-                <input type="text" class="with-border" placeholder="Suffix List">
+                <input ngModel name="suffixList" type="text" class="with-border" placeholder="Suffix List">
               </div>
-          </div>
+            </div>
 
-          <div class="col-xl-4">
+            <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Title File</h5>
-                <select class="selectpicker with-border" data-size="7" title="Select Title File">
+                <select ngModel name="titleFile" class="selectpicker with-border" data-size="7"
+                  title="Select Title File">
                   <option>file.txt</option>
                   <option>file 2.txt</option>
                   <option>file3 .txt</option>
@@ -107,36 +111,41 @@
               </div>
             </div>
 
-          <div class="col-xl-4">
-            <div class="submit-field">
-              <h5>Description File</h5>
-              <select class="selectpicker with-border" data-size="7" title="Select Description File">
-                <option>Admin Support</option>
-                <option>Customer Service</option>
-                <option>Data Analytics</option>
-                <option>Design & Creative</option>
-                <option>Legal</option>
-                <option>Software Developing</option>
-                <option>IT & Networking</option>
-                <option>Writing</option>
-                <option>Translation</option>
-                <option>Sales & Marketing</option>
-              </select>
-            </div>
-          </div>
-
-        
-
-          <div class="col-xl-12">
-            <div class="submit-field">
-              <div class="uploadButton margin-top-30">
-                <input class="uploadButton-input" type="submit"  id="upload" multiple />
-                <label class="uploadButton-button ripple-effect" for="upload">Save Wordpress</label>
+            <div class="col-xl-4">
+              <div class="submit-field">
+                <h5>Description File</h5>
+                <select ngModel name="descFile" class="selectpicker with-border" data-size="7"
+                  title="Select Description File">
+                  <option>Admin Support</option>
+                  <option>Customer Service</option>
+                  <option>Data Analytics</option>
+                  <option>Design & Creative</option>
+                  <option>Legal</option>
+                  <option>Software Developing</option>
+                  <option>IT & Networking</option>
+                  <option>Writing</option>
+                  <option>Translation</option>
+                  <option>Sales & Marketing</option>
+                </select>
               </div>
             </div>
+
+
+
+            <div class="col-xl-12">
+              <div class="submit-field">
+                <div class="uploadButton margin-top-30">
+                  <input class="uploadButton-input" type="submit" id="upload" multiple />
+                  <label class="uploadButton-button ripple-effect" for="upload">Save Wordpress</label>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-        </div>
+        </form>
+
+
       </div>
     </div>
 

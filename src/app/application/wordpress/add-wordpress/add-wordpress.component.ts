@@ -12,7 +12,8 @@ export class AddWordpressComponent implements OnInit {
 
   state = {
     title : null,
-    descriptions : null
+    descriptions : null,
+    isCompleted : false,
   }
 
   ngOnInit() {
@@ -25,4 +26,15 @@ export class AddWordpressComponent implements OnInit {
     });
   }
 
+  addWordpress(formObject){
+    if(formObject.form.valid){
+        this.service.saveWordpress(formObject.form.value).subscribe(data => {
+            this.state.isCompleted = false;
+            formObject.form.reset();
+        }, error => {
+          alert("Error while adding wordpress.");
+        });
+    }
+    console.log(formObject.form.value);
+  }
 }

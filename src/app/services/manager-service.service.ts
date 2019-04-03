@@ -16,7 +16,8 @@ export class ManagerServiceService {
     getConnectedStorage: '/getGoogleAccounts',
     uploadFilesGeneric: '/uploadFilesGeneric',
     getUploadedFiles: '/getFiles',
-    addWordpress: '/addNewWordpress'
+    addWordpress: '/addNewWordpress',
+    getWordpress : '/getConnectedWpAccounts'
   };
 
   constructor(private http: HttpClient) {
@@ -65,6 +66,10 @@ export class ManagerServiceService {
   saveWordpress(data: Object): Observable<any> {
     return this.http.post(this.getEndpoint('addWordpress'), data,
       { headers: { 'content-type': 'application/json' } })
+  }
+
+  getWordpress() : Observable<any>{
+    return this.http.get(this.getEndpoint('getWordpress'));
   }
 
 }

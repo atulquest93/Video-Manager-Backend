@@ -20,7 +20,7 @@ export class UploadFilesComponent implements OnInit {
   constructor(private service: ManagerServiceService) { }
 
   ngOnInit() {
-
+    $('select').selectpicker();
   }
 
 

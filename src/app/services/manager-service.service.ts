@@ -17,7 +17,8 @@ export class ManagerServiceService {
     uploadFilesGeneric: '/uploadFilesGeneric',
     getUploadedFiles: '/getFiles',
     addWordpress: '/addNewWordpress',
-    getWordpress : '/getConnectedWpAccounts'
+    getWordpress: '/getConnectedWpAccounts',
+    deleteWp: '/deleteWPAccount'
   };
 
   constructor(private http: HttpClient) {
@@ -68,7 +69,12 @@ export class ManagerServiceService {
       { headers: { 'content-type': 'application/json' } })
   }
 
-  getWordpress() : Observable<any>{
+  deleteWordpress(data: Object): Observable<any> {
+    return this.http.post(this.getEndpoint('deleteWp'), data,
+      { headers: { 'content-type': 'application/json' } });
+  }
+
+  getWordpress(): Observable<any> {
     return this.http.get(this.getEndpoint('getWordpress'));
   }
 

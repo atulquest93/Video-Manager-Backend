@@ -9,7 +9,8 @@ import { ManagerServiceService } from 'src/app/services/manager-service.service'
 export class ViewWordpressComponent implements OnInit {
 
   state = {
-    connectedWp : null
+    connectedWp : null,
+    deleteSuccess : false,
   }
   constructor(private service : ManagerServiceService) { }
 
@@ -21,4 +22,20 @@ export class ViewWordpressComponent implements OnInit {
     });
   }
 
+  reloadWordpressAccounts(){
+    this.service.getWordpress().subscribe(data => {
+      this.state.connectedWp = data;
+    }, error => {
+      alert("Backend API Issue. Unable to connect");
+    });
+  }
+
+  deleteWordpress(id : any){
+    this.service.deleteWordpress({id : id}).subscribe(data => {
+      this.state.deleteSuccess = true;
+      this.reloadWordpressAccounts();
+    }, error => {
+      alert("Unable to delete selected Wordpress account !");
+    });
+  }
 }

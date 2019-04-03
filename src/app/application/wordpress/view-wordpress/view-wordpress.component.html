@@ -1,40 +1,3 @@
-<!-- Send Direct Message Popup
-================================================== -->
-<div id="small-dialog" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
-
-	<!--Tabs -->
-	<div class="sign-in-form">
-
-		<ul class="popup-tabs-nav">
-			<li><a href="#tab">Send Message</a></li>
-		</ul>
-
-		<div class="popup-tabs-container">
-
-			<!-- Tab -->
-			<div class="popup-tab-content" id="tab">
-				
-				<!-- Welcome Text -->
-				<div class="welcome-text">
-					<h3>Direct Message To Sindy</h3>
-				</div>
-					
-				<!-- Form -->
-				<form method="post" id="send-pm">
-					<textarea name="textarea" cols="10" placeholder="Message" class="with-border" required></textarea>
-				</form>
-				
-				<!-- Button -->
-				<button class="button full-width button-sliding-icon ripple-effect" type="submit" form="send-pm">Send <i class="icon-material-outline-arrow-right-alt"></i></button>
-
-			</div>
-
-		</div>
-	</div>
-</div>
-<!-- Send Direct Message Popup / End -->
-
-
 <div class="row" style="margin-bottom:50px;">
 
   <!-- Dashboard Box -->
@@ -44,6 +7,15 @@
       <!-- Headline -->
       <div class="headline">
         <h3><i class="icon-material-outline-business-center"></i> Connected Wordpress Sites</h3>
+      </div>
+
+      <div *ngIf="state.deleteSuccess" class="row">
+        <div class="col-xl-12">
+            <div  class="notification success closeable">
+                <p>Wordpress deleted successfully !</p>
+                <a (click)="state.deleteSuccess = false" class="close"></a>
+              </div>
+        </div>
       </div>
 
       <div class="content">
@@ -80,9 +52,9 @@
 
             <!-- Buttons -->
             <div class="buttons-to-right always-visible">
-              <a href="" class="popup-with-zoom-anim button dark ripple-effect"><i
-                  class="icon-material-outline-history"></i> Set Posts Per Hour</a>
-              <a style="margin-left:10px;" href="#" class="button gray ripple-effect ico" data-tippy-placement="top" data-tippy=""
+              <a  class="button ripple-effect"><i
+                  class="icon-material-outline-history"></i> Update Hourly Limit</a>
+              <a (click)="deleteWordpress(wp.id)" style="margin-left:10px;" class="button gray ripple-effect ico" data-tippy-placement="top" data-tippy=""
                 data-original-title="Remove"><i class="icon-feather-trash-2"></i></a>
             </div>
           </li>

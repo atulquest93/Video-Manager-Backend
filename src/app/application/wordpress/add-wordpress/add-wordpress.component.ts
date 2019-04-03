@@ -8,32 +8,41 @@ import { ManagerServiceService } from 'src/app/services/manager-service.service'
 })
 export class AddWordpressComponent implements OnInit {
 
-  constructor(private service  : ManagerServiceService) { }
+  constructor(private service: ManagerServiceService) { }
 
   state = {
-    title : null,
-    descriptions : null,
-    isCompleted : false,
+    title: null,
+    descriptions: null,
+    isCompleted: false,
   }
 
   ngOnInit() {
-    $('select').selectpicker();
+    /// $('select').selectpicker();
     this.service.getUploadedFiles('title').subscribe(data => {
       this.state.title = data;
     });
     this.service.getUploadedFiles('description').subscribe(data => {
       this.state.descriptions = data;
+
+      setTimeout(() => { 
+        $('select').selectpicker();
+      }, 5000);
+
     });
+
+
   }
 
-  addWordpress(formObject){
-    if(formObject.form.valid){
-        this.service.saveWordpress(formObject.form.value).subscribe(data => {
-            this.state.isCompleted = false;
-            formObject.form.reset();
-        }, error => {
-          alert("Error while adding wordpress.");
-        });
+  addWordpress(formObject) {
+    if (formObject.form.valid) {
+      this.service.saveWordpress(formObject.form.value).subscribe(data => {
+        this.state.isCompleted = true;
+        formObject.form.reset();
+      }, error => {
+        alert("Error while adding wordpress.");
+      });
+    } else {
+      alert("Kindly select all required data.");
     }
     console.log(formObject.form.value);
   }

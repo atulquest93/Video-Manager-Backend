@@ -10,6 +10,15 @@
         <h3><i class="icon-feather-folder-plus"></i> Add New Wordpress</h3>
       </div>
 
+      <div *ngIf="state.isCompleted" class="row">
+        <div class="col-xl-12">
+            <div  class="notification success closeable">
+                <p>Wordpress added successfully !</p>
+                <a (click)="state.isCompleted = false" class="close"></a>
+              </div>
+        </div>
+      </div>
+
       <div class="content with-padding padding-bottom-10">
         <form (ngSubmit)="addWordpress(f)" #f="ngForm" >
 
@@ -18,28 +27,28 @@
             <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Wordpress Name</h5>
-                <input ngModel name="wpName" type="text" class="with-border" placeholder="Wordpress name">
+                <input ngModel name="wpName" type="text" class="with-border" placeholder="Wordpress name" required>
               </div>
             </div>
 
             <div class="col-xl-4">
               <div class="submit-field">
                 <h5>API Url</h5>
-                <input ngModel name="apiURL" type="text" class="with-border" placeholder="API Url">
+                <input ngModel name="apiURL" type="text" class="with-border" placeholder="API Url" required>
               </div>
             </div>
 
             <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Authorization Key</h5>
-                <input ngModel name="authKey" type="text" class="with-border" placeholder="Authorization Key">
+                <input ngModel name="authKey" type="text" class="with-border" placeholder="Authorization Key" required>
               </div>
             </div>
 
             <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Video Meta</h5>
-                <input ngModel name="videoMeta" type="text" class="with-border" placeholder="Video Meta Name">
+                <input ngModel name="videoMeta" type="text" class="with-border" placeholder="Video Meta Name" required>
               </div>
             </div>
 
@@ -102,11 +111,9 @@
             <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Title File</h5>
-                <select ngModel name="titleFile" class="selectpicker with-border" data-size="7"
+                <select [(ngModel)]="titleFile" name="titleFile" class="selectpicker with-border" data-size="7"
                   title="Select Title File">
-                  <option>file.txt</option>
-                  <option>file 2.txt</option>
-                  <option>file3 .txt</option>
+                  <option *ngFor="let title of state.title" [ngValue]="title.fileName">{{title.fileName | uppercase}}</option>
                 </select>
               </div>
             </div>
@@ -114,23 +121,13 @@
             <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Description File</h5>
-                <select ngModel name="descFile" class="selectpicker with-border" data-size="7"
+                <select [(ngModel)]="descFile" name="descFile"  class="selectpicker with-border" data-size="7"
                   title="Select Description File">
-                  <option>Admin Support</option>
-                  <option>Customer Service</option>
-                  <option>Data Analytics</option>
-                  <option>Design & Creative</option>
-                  <option>Legal</option>
-                  <option>Software Developing</option>
-                  <option>IT & Networking</option>
-                  <option>Writing</option>
-                  <option>Translation</option>
-                  <option>Sales & Marketing</option>
+                  <option *ngFor="let desc of state.descriptions"
+                     [ngValue]="desc.fileName">{{desc.fileName | uppercase }}</option>
                 </select>
               </div>
             </div>
-
-
 
             <div class="col-xl-12">
               <div class="submit-field">

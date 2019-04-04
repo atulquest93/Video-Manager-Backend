@@ -1,0 +1,25 @@
+/* :host>>>table tr th {
+    text-align: center;
+}
+
+:host>>>table tr td {
+    text-align: center;
+}
+ */
+
+:host /deep/ ng2-smart-table-pager  { 
+    padding: 20px;
+    font-size: 22px;
+} 
+
+:host /deep/ ng2-smart-table-pager > nav > ul > li {
+    margin : 10px;
+}
+
+:host /deep/ table-cell-view-mode {
+    text-align: center;
+}
+
+:host /deep/ ng2-smart-table > table > tbody > tr {
+    height: 60px;
+}

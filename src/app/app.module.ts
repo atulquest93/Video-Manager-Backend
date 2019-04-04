@@ -11,6 +11,7 @@ import { ViewFilesComponent } from './application/files/view-files/view-files.co
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UploadFilesComponent } from './application/wordpress/upload-files/upload-files.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { UploadFilesComponent } from './application/wordpress/upload-files/uploa
     UploadFilesComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, HttpClientModule, FormsModule
+    BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, Ng2SmartTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

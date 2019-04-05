@@ -11,10 +11,10 @@
 
       <div *ngIf="state.deleteSuccess" class="row">
         <div class="col-xl-12">
-            <div  class="notification success closeable">
-                <p>Wordpress deleted successfully !</p>
-                <a (click)="state.deleteSuccess = false" class="close"></a>
-              </div>
+          <div class="notification success closeable">
+            <p>Wordpress deleted successfully !</p>
+            <a (click)="state.deleteSuccess = false" class="close"></a>
+          </div>
         </div>
       </div>
 
@@ -35,15 +35,15 @@
                 <!-- Details -->
                 <div class="job-listing-description">
                   <h3 class="job-listing-title"><i class="icon-feather-archive
-                    "></i>    {{wp.name}}</h3>
+                    "></i> {{wp.name}}</h3>
 
                   <!-- Job Listing Footer -->
                   <div class="job-listing-footer">
                     <ul>
-                        <li><i class="icon-material-outline-folder-shared"></i>  {{wp.api}}</li>
+                      <li><i class="icon-material-outline-folder-shared"></i> {{wp.api}}</li>
                       <li><i class="icon-material-outline-archive"></i> {{wp.meta}}</li>
-                      <li><i class="icon-material-outline-account-balance-wallet"></i>  {{wp.titleFile}}</li>
-                      <li><i class="icon-material-outline-account-balance-wallet"></i>  {{wp.descFile}}</li>
+                      <li><i class="icon-material-outline-account-balance-wallet"></i> {{wp.titleFile}}</li>
+                      <li><i class="icon-material-outline-account-balance-wallet"></i> {{wp.descFile}}</li>
                     </ul>
                   </div>
                 </div>
@@ -52,10 +52,12 @@
 
             <!-- Buttons -->
             <div class="buttons-to-right always-visible">
-              <a  class="button ripple-effect"><i
-                  class="icon-material-outline-history"></i> Update Hourly Limit</a>
-              <a (click)="deleteWordpress(wp.id)" style="margin-left:10px;" class="button gray ripple-effect ico" data-tippy-placement="top" data-tippy=""
-                data-original-title="Remove"><i class="icon-feather-trash-2"></i></a>
+
+              <a href="" class="button ripple-effect"><i class="icon-material-outline-history"></i> Update Hourly
+                Limit</a>
+              <a (click)="deleteWordpress(wp.id)" style="margin-left:10px;" class="button gray ripple-effect ico"
+                data-tippy-placement="top" data-tippy="" data-original-title="Remove"><i
+                  class="icon-feather-trash-2"></i></a>
             </div>
           </li>
 

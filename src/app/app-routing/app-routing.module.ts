@@ -7,6 +7,7 @@ import { ViewWordpressComponent } from '../application/wordpress/view-wordpress/
 import { ViewStorageComponent } from '../application/storage/view-storage/view-storage.component';
 import { UploadFilesComponent } from '../application/wordpress/upload-files/upload-files.component';
 import { ViewFilesComponent } from '../application/files/view-files/view-files.component';
+import { CrawlerComponent } from '../application/crawler/crawler.component';
 
 const routes : Routes = [
 
@@ -24,6 +25,8 @@ const routes : Routes = [
     path : 'wordpress/uploadFiles', component : UploadFilesComponent
   },{
     path : 'storage/files', component : ViewFilesComponent
+  },{
+    path : 'crawler', component : CrawlerComponent
   }
 
 ];

@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UploadFilesComponent } from './application/wordpress/upload-files/upload-files.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { CrawlerComponent } from './application/crawler/crawler.component';
+import { ViewQueueComponent } from './application/crawler/view-queue/view-queue.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     ViewWordpressComponent,
     ViewStorageComponent,
     ViewFilesComponent,
-    UploadFilesComponent
+    UploadFilesComponent,
+    CrawlerComponent,
+    ViewQueueComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, Ng2SmartTableModule

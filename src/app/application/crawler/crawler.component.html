@@ -1,0 +1,83 @@
+<!-- Row -->
+<div class="row" style="margin-bottom:50px;">
+  <!-- Dashboard Box -->
+  <div class="col-xl-12">
+
+    <div class="dashboard-box margin-top-0">
+
+      <!-- Headline -->
+      <div class="headline">
+        <h3><i class="icon-feather-folder-plus"></i> Add file to crawler</h3>
+      </div>
+
+      <div *ngIf="state.isProcessComplete" class="row">
+        <div class="col-xl-12">
+            <div  class="notification success closeable">
+                <p>File Crawl iniated successfully. !</p>
+                <a (click)="state.isProcessComplete = false" class="close"></a>
+              </div>
+        </div>
+      </div>
+      <div class="content with-padding padding-bottom-10">
+
+        <form (ngSubmit)="addtoQueue(f)" #f="ngForm">
+
+          <div class="row">
+
+            <div class="col-xl-12">
+              <div class="submit-field">
+                <h5>URL</h5>
+                <input name="videoUrl" ngModel type="text" class="with-border" placeholder="Video URL" required>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="submit-field">
+                <h5>Select Crawler</h5>
+                <select [(ngModel)]="crawler" name="crawler" title="Select Cralwer">
+                  <option *ngFor="let crawler of state.crawlerList" [value]="crawler.name" selected>{{crawler.name}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="submit-field">
+                <h5>Select Wordpress to Post</h5>
+                <select [(ngModel)]="wordpress" name="wordpress" title="Select Wordpress">
+                  <option *ngFor="let wp of state.connectedWpList" [ngValue]="wp.name" selected>{{wp.name}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="submit-field">
+                <h5>Select Storage</h5>
+                <select [(ngModel)]="storage" name="storage" title="Select Storage">
+                  <option *ngFor="let storage of state.googleAccounts" [ngValue]="storage.name" selected>{{storage.name}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xl-12">
+              <div class="submit-field">
+                <div class="uploadButton margin-top-30">
+                  <input class="uploadButton-input" type="submit" id="upload" multiple />
+                  <label class="uploadButton-button ripple-effect" for="upload">Add to Crawler Queue</label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- End Dashboard box -->
+</div>
+<!-- End row -->

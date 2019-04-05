@@ -18,7 +18,9 @@ export class ManagerServiceService {
     getUploadedFiles: '/getFiles',
     addWordpress: '/addNewWordpress',
     getWordpress: '/getConnectedWpAccounts',
-    deleteWp: '/deleteWPAccount'
+    deleteWp: '/deleteWPAccount',
+    getCrawlers : '/getCrawlers',
+    addtoCrawlerQueue : '/addtoCrawlerQueue'
   };
 
   constructor(private http: HttpClient) {
@@ -76,6 +78,16 @@ export class ManagerServiceService {
 
   getWordpress(): Observable<any> {
     return this.http.get(this.getEndpoint('getWordpress'));
+  }
+
+  getCrawlers() : Observable<any>{
+    return this.http.get(this.getEndpoint('getCrawlers'));
+  }
+
+  addtoCrawlerQueue(data) : Observable<any> {
+    return this.http.post(this.getEndpoint('addtoCrawlerQueue'), data , {
+      headers : {'content-type' : 'application/json'}
+    });
   }
 
 }

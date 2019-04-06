@@ -18,6 +18,15 @@
         </div>
       </div>
 
+      <div *ngIf="state.showUpdateeSuccess" class="row">
+          <div class="col-xl-12">
+            <div class="notification success closeable">
+              <p>Scheduler Limit Updatd !</p>
+              <a (click)="state.showUpdateeSuccess = false" class="close"></a>
+            </div>
+          </div>
+        </div>
+
       <div class="content">
         <ul class="dashboard-box-list">
           <li *ngFor="let wp of state.connectedWp">
@@ -44,6 +53,7 @@
                       <li><i class="icon-material-outline-archive"></i> {{wp.meta}}</li>
                       <li><i class="icon-material-outline-account-balance-wallet"></i> {{wp.titleFile}}</li>
                       <li><i class="icon-material-outline-account-balance-wallet"></i> {{wp.descFile}}</li>
+                      <li>{{wp.maxPostLimit}} Posts Per Day</li>
                     </ul>
                   </div>
                 </div>
@@ -53,8 +63,14 @@
             <!-- Buttons -->
             <div class="buttons-to-right always-visible">
 
-              <a href="" class="button ripple-effect"><i class="icon-material-outline-history"></i> Update Hourly
+              <a *ngIf="!wp.isSetLimit" (click)="wp.isSetLimit = true;" class="white button ripple-effect"><i class="icon-material-outline-history"></i> Update Hourly
                 Limit</a>
+
+              <div *ngIf="wp.isSetLimit" class="keyword-input-container" style="display:inline-block; margin : 0px 10px;position:relative;top:-12px;">
+                <input [(ngModel)]="wp.limit" [value]="wp.limit" style="margin:0px;" type="text" class="keyword-input" placeholder="Limit Ex: 10">
+                <button (click) = "updateLimit(wp)" class="keyword-input-button ripple-effect"><i class="icon-material-outline-check"></i></button>
+              </div>
+
               <a (click)="deleteWordpress(wp.id)" style="margin-left:10px;" class="button gray ripple-effect ico"
                 data-tippy-placement="top" data-tippy="" data-original-title="Remove"><i
                   class="icon-feather-trash-2"></i></a>

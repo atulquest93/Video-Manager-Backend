@@ -18,6 +18,7 @@ export class ManagerServiceService {
     getUploadedFiles: '/getFiles',
     addWordpress: '/addNewWordpress',
     getWordpress: '/getConnectedWpAccounts',
+    updateWordpress : '/updateWordpress',
     deleteWp: '/deleteWPAccount',
     getCrawlers : '/getCrawlers',
     addtoCrawlerQueue : '/addtoCrawlerQueue',
@@ -94,6 +95,12 @@ export class ManagerServiceService {
   refreshStorageFiles(storageId) : Observable<any>{
     return this.http.get(
         this.getEndpoint('refreshStorageFiles')+'?id='+storageId);
+  }
+
+  updateWordpress(wp) : Observable<any>{
+    return this.http.post(this.getEndpoint('updateWordpress'), wp, {
+      headers : {'content-type' : 'application/json'}
+    });
   }
 
 }

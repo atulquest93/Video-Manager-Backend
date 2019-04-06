@@ -8,10 +8,36 @@
       <div class="headline">
         <h3><i class="icon-material-outline-business-center"></i> Storage Files</h3>
       </div>
+      
+      <div class="boxed-list-headline">
 
+        <div class="row">
+        <div class="col-xl-4">
+          <div class="submit-field">
+            <h5>Select Google Account</h5>
+            <select [(ngModel)]="selected"  (change)="selectStorage($event.target.value)" title="Select Stroage">
+              <option *ngFor="let stroage of state.connectedStorage" [ngValue]="stroage.bucketName" selected>{{stroage.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-xl-6">
+          <div class="submit-field">
+            <h5>Selectd Stroage Bucket</h5>
+            <span class="storage">{{state.selectedBucket}}</span>
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+   
+        
+   
+    
 
       <div class="content">
-        
+
         <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
 
       </div>

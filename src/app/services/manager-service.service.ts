@@ -20,7 +20,8 @@ export class ManagerServiceService {
     getWordpress: '/getConnectedWpAccounts',
     deleteWp: '/deleteWPAccount',
     getCrawlers : '/getCrawlers',
-    addtoCrawlerQueue : '/addtoCrawlerQueue'
+    addtoCrawlerQueue : '/addtoCrawlerQueue',
+    refreshStorageFiles : '/refreshStorageFiles'
   };
 
   constructor(private http: HttpClient) {
@@ -88,6 +89,11 @@ export class ManagerServiceService {
     return this.http.post(this.getEndpoint('addtoCrawlerQueue'), data , {
       headers : {'content-type' : 'application/json'}
     });
+  }
+
+  refreshStorageFiles(storageId) : Observable<any>{
+    return this.http.get(
+        this.getEndpoint('refreshStorageFiles')+'?id='+storageId);
   }
 
 }

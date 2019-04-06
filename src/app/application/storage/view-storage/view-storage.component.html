@@ -9,6 +9,15 @@
         <h3><i class="icon-material-outline-business-center"></i> Connected Storage Accounts</h3>
       </div>
 
+      <div *ngIf="state.triggered" class="row">
+          <div class="col-xl-12">
+              <div  class="notification success closeable">
+                  <p>Refresh Triggerd ! It may take upto 2-3 minutes.</p>
+                  <a (click)="state.triggered = false" class="close"></a>
+                </div>
+          </div>
+        </div>
+
       <div class="content">
         <ul class="dashboard-box-list">
           <li *ngFor="let storage of state.connectedStorages">
@@ -42,7 +51,7 @@
 
             <!-- Buttons -->
             <div class="buttons-to-right always-visible">
-              <a href="" class="button ripple-effect"><i
+              <a (click)="triggerRefresh(storage.id)" class=" white button ripple-effect"><i
                   class="icon-material-outline-history"></i> Refresh Files</a>
               <a style="margin-left:10px;" href="#" class="button gray ripple-effect ico" data-tippy-placement="top" data-tippy=""
                 data-original-title="Remove"><i class="icon-feather-trash-2"></i></a>

@@ -9,15 +9,24 @@ import { ManagerServiceService } from 'src/app/services/manager-service.service'
 export class ViewStorageComponent implements OnInit {
 
   state = {
-    connectedStorages : []
+    connectedStorages : [],
+    triggered : false
   }
   constructor(private service : ManagerServiceService) { }
 
   ngOnInit() {
     this.service.getConnectedStorage().subscribe((data) => {
-      
       this.state.connectedStorages = data;
-      console.log(this.state.connectedStorages);
+    });
+  }
+
+  triggerRefresh(id){
+    this.state.triggered = true;
+    
+    this.service.refreshStorageFiles(id).subscribe(data => {
+      console.log(data);
+    }, error => {
+
     });
   }
 

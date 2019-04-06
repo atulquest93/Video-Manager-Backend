@@ -23,3 +23,12 @@
 :host /deep/ ng2-smart-table > table > tbody > tr {
     height: 60px;
 }
+
+
+.storage{
+    background: white;
+    padding: 14px;
+    border-radius: 4px;
+    position: relative;
+    top: 10px;
+}

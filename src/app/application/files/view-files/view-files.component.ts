@@ -22,7 +22,7 @@ export class ViewFilesComponent implements OnInit {
   source: ServerDataSource;
 
   constructor(http: HttpClient, private service : ManagerServiceService) {
-    this.source = new ServerDataSource(http, { endPoint: 'http://localhost:3000/getStorageFiles' });
+    this.source = new ServerDataSource(http, { endPoint: this.service.getEndpoint('getStorageFiles') });
   }
 
   ngOnInit() {

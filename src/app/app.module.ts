@@ -14,6 +14,7 @@ import { UploadFilesComponent } from './application/wordpress/upload-files/uploa
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { CrawlerComponent } from './application/crawler/crawler.component';
 import { ViewQueueComponent } from './application/crawler/view-queue/view-queue.component';
+import { ViewPostsComponent } from './application/crawler/view-posts/view-posts.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ViewQueueComponent } from './application/crawler/view-queue/view-queue.
     ViewFilesComponent,
     UploadFilesComponent,
     CrawlerComponent,
-    ViewQueueComponent
+    ViewQueueComponent,
+    ViewPostsComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, Ng2SmartTableModule

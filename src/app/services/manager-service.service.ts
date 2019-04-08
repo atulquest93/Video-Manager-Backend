@@ -9,7 +9,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class ManagerServiceService {
 
-  server = "http://localhost:3000";
+  server = "http://"+window.document.location.hostname+":3001";
+  
   endpoints = {
     uploadKey: '/uploadServiceKeys',
     saveStorage: '/addGoogleAccounts',
@@ -22,7 +23,9 @@ export class ManagerServiceService {
     deleteWp: '/deleteWPAccount',
     getCrawlers : '/getCrawlers',
     addtoCrawlerQueue : '/addtoCrawlerQueue',
-    refreshStorageFiles : '/refreshStorageFiles'
+    refreshStorageFiles : '/refreshStorageFiles',
+    getCrawlerQueue : '/getCrawlerQueue',
+    getStorageFiles : '/getStorageFiles'
   };
 
   constructor(private http: HttpClient) {

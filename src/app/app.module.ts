@@ -15,6 +15,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { CrawlerComponent } from './application/crawler/crawler.component';
 import { ViewQueueComponent } from './application/crawler/view-queue/view-queue.component';
 import { ViewPostsComponent } from './application/crawler/view-posts/view-posts.component';
+import { SettingsComponent } from './application/settings/settings.component';
+import { ProxySettingsComponent } from './application/settings/proxy-settings/proxy-settings.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ViewPostsComponent } from './application/crawler/view-posts/view-posts.
     UploadFilesComponent,
     CrawlerComponent,
     ViewQueueComponent,
-    ViewPostsComponent
+    ViewPostsComponent,
+    SettingsComponent,
+    ProxySettingsComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, Ng2SmartTableModule

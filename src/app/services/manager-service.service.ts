@@ -25,7 +25,8 @@ export class ManagerServiceService {
     addtoCrawlerQueue : '/addtoCrawlerQueue',
     refreshStorageFiles : '/refreshStorageFiles',
     getCrawlerQueue : '/getCrawlerQueue',
-    getStorageFiles : '/getStorageFiles'
+    getStorageFiles : '/getStorageFiles',
+    getAutoPosts : '/getAutoPosts'
   };
 
   constructor(private http: HttpClient) {

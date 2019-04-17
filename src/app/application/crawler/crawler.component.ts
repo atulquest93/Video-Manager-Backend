@@ -43,14 +43,20 @@ export class CrawlerComponent implements OnInit {
   }
 
 
-  addtoQueue(formData){
-    if(formData.form.valid){
-      this.service.addtoCrawlerQueue(formData.form.value).subscribe(data => {
+  addtoQueue(formData) {
+    if (formData.form.valid) {
+
+      if (formData.form.value.crawler == "Xvideos") {
+        var arr = formData.form.value.videoUrl.split("/");
+        formData.form.value.fileName = "xVid_" + arr[arr.length - 1];
+        this.service.addtoCrawlerQueue(formData.form.value).subscribe(data => {
           this.state.isProcessComplete = true;
           formData.form.reset();
-      }, err => {
+        }, err => {
           alert("Unable to add to Queue");
-      });
+        });
+      }
+
     }
   }
 

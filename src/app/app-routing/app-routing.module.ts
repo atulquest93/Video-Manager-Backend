@@ -9,6 +9,7 @@ import { UploadFilesComponent } from '../application/wordpress/upload-files/uplo
 import { ViewFilesComponent } from '../application/files/view-files/view-files.component';
 import { CrawlerComponent } from '../application/crawler/crawler.component';
 import { ViewQueueComponent } from '../application/crawler/view-queue/view-queue.component';
+import { ViewPostsComponent } from '../application/crawler/view-posts/view-posts.component';
 
 const routes : Routes = [
 
@@ -30,6 +31,8 @@ const routes : Routes = [
     path : 'crawler', component : CrawlerComponent
   },{
     path : 'crawler/viewCrawlerQueue', component : ViewQueueComponent
+  }, {
+    path : 'crawler/viewPosts', component : ViewPostsComponent
   }
 
 ];

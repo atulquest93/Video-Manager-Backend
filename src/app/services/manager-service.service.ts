@@ -26,7 +26,9 @@ export class ManagerServiceService {
     refreshStorageFiles : '/refreshStorageFiles',
     getCrawlerQueue : '/getCrawlerQueue',
     getStorageFiles : '/getStorageFiles',
-    getAutoPosts : '/getAutoPosts'
+    getAutoPosts : '/getAutoPosts',
+    checkProxy : '/checkProxy',
+    saveProxy : "/saveProxy"
   };
 
   constructor(private http: HttpClient) {
@@ -103,6 +105,18 @@ export class ManagerServiceService {
 
   updateWordpress(wp) : Observable<any>{
     return this.http.post(this.getEndpoint('updateWordpress'), wp, {
+      headers : {'content-type' : 'application/json'}
+    });
+  }
+
+  checkPorxy(proxy) : Observable<any>{
+    return this.http.post(this.getEndpoint('checkProxy'), proxy, {
+      headers : {'content-type' : 'application/json'}
+    });
+  }
+
+  saveProxy(proxy) : Observable<any>{
+    return this.http.post(this.getEndpoint('saveProxy'), proxy, {
       headers : {'content-type' : 'application/json'}
     });
   }

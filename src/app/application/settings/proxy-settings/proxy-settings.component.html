@@ -1,3 +1,76 @@
-<p>
-  proxy-settings works!
-</p>
+<!-- Row -->
+<div class="row" style="margin-bottom:50px;">
+  <!-- Dashboard Box -->
+  <div class="col-xl-12">
+
+    <div class="dashboard-box margin-top-0">
+
+      <!-- Headline -->
+      <div class="headline">
+        <h3><i class="icon-feather-folder-plus"></i> Script Settings</h3>
+      </div>
+
+      <div class="content with-padding padding-bottom-10">
+
+        <form (ngSubmit)="checkProxy(f)" #f="ngForm">
+
+          <div class="row">
+
+            <div class="col-xl-6">
+              <div class="submit-field">
+                <h5>Proxy</h5>
+                <input name="proxyDetails" ngModel type="text" class="with-border" placeholder="Proxy : Port" required>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="submit-field">
+                <h5>Proxy Type</h5>
+                <select name="proxyType" ngModel title="Select Type">
+                  <option value="HTTP" selected>HTTP</option>
+                  <option value="HTTPS" selected>HTTPS</option>
+                  <option value="SOCKS" selected>SOCKS</option>
+                </select>
+              </div>
+            </div>
+
+            <div *ngIf="state.isAvailable && !state.isHide" class="notify-box margin-top-15">
+              {{state.proxyResult.protocols | json}}
+            </div>
+
+            <div *ngIf="!state.isAvailable && !state.isHide" class="notify-box margin-top-15">
+               {{this.state.message}}
+            </div>
+
+            <div class="col-xl-3">
+              <div class="submit-field">
+                <div class="uploadButton margin-top-30" style="display: inline-block;">
+                  <input class="uploadButton-input" type="submit" id="upload" multiple />
+                  <label class="uploadButton-button ripple-effect" for="upload">Check Proxy</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+                <div class="submit-field">
+                    <div class="uploadButton margin-top-30">
+                        <input (click) = "saveProxy()" class="uploadButton-input" type="button" id="save" multiple />
+                        <label class="uploadButton-button ripple-effect" for="save">Save Proxy</label>
+                      </div>
+                </div>
+              </div>
+
+          </div>
+        </form>
+
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- End Dashboard box -->
+</div>
+<!-- End row -->

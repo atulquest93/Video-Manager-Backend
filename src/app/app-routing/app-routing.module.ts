@@ -10,6 +10,7 @@ import { ViewFilesComponent } from '../application/files/view-files/view-files.c
 import { CrawlerComponent } from '../application/crawler/crawler.component';
 import { ViewQueueComponent } from '../application/crawler/view-queue/view-queue.component';
 import { ViewPostsComponent } from '../application/crawler/view-posts/view-posts.component';
+import { SettingsComponent } from '../application/settings/settings.component';
 
 const routes : Routes = [
 
@@ -33,6 +34,8 @@ const routes : Routes = [
     path : 'crawler/viewCrawlerQueue', component : ViewQueueComponent
   }, {
     path : 'crawler/viewPosts', component : ViewPostsComponent
+  },{
+    path : 'settings', component : SettingsComponent
   }
 
 ];

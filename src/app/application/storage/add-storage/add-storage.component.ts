@@ -35,7 +35,17 @@ export class AddStorageComponent implements OnInit {
   }
 
   addStorage(formObject){
-    if(formObject.form.valid == true && this.isUploadComplete == true){
+    
+    if(formObject.form.value.storageType == "cdn"){
+
+      this.managerService.saveStorage(formObject.form.value).subscribe(data => {
+        this.isProcessComplete = true;
+        formObject.form.reset();
+      }, error => {
+        console.log(error);
+      });
+
+    }else if(formObject.form.valid == true && this.isUploadComplete == true){
 
       formObject.form.value['uploadedFileName'] = this.uploadedFileName;
 

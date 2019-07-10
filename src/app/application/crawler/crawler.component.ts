@@ -46,13 +46,23 @@ export class CrawlerComponent implements OnInit {
   addtoQueue(formData) {
 
     if (formData.form.valid) {
-        this.service.addtoCrawlerQueue(formData.form.value).subscribe(data => {
+
+      let data = {
+          url : formData.form.value.multiplevideoUrl.split("#"),
+          storage : formData.form.value.storage,
+          crawler : formData.form.value.crawler,
+          wordpress : formData.form.value.wordpress
+      };
+      
+      this.service.addtoCrawlerQueue(data).subscribe(data => {
           this.state.isProcessComplete = true;
           formData.form.reset();
-        }, err => {
+      }, err => {
           alert("Unable to add to Queue");
-        });
+      });
+
+    }else{
+      alert("Select all the required options.");
     }
   }
-
 }

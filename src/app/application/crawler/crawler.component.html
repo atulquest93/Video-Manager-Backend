@@ -27,14 +27,14 @@
             <div class="col-xl-12">
               <div class="submit-field">
                 <h5>URL</h5>
-                <input name="videoUrl" ngModel type="text" class="with-border" placeholder="Video URL" required>
+                <textarea name="multiplevideoUrl" ngModel type="text" class="with-border" placeholder="Use # Seperated URL's" required ></textarea>
               </div>
             </div>
 
             <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Select Crawler</h5>
-                <select [(ngModel)]="crawler" name="crawler" title="Select Cralwer">
+                <select data-dropup-auto="false" data-size="3" [(ngModel)]="crawler" name="crawler" title="Select Cralwer">
                   <option *ngFor="let crawler of state.crawlerList" [value]="crawler.name" selected>{{crawler.name}}</option>
                 </select>
               </div>
@@ -43,7 +43,7 @@
             <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Select Wordpress to Post</h5>
-                <select [(ngModel)]="wordpress" name="wordpress" title="Select Wordpress">
+                <select data-dropup-auto="false" data-size="3" [(ngModel)]="wordpress" name="wordpress" title="Select Wordpress">
                   <option *ngFor="let wp of state.connectedWpList" [ngValue]="wp.name" selected>{{wp.name}}</option>
                 </select>
               </div>
@@ -52,7 +52,7 @@
             <div class="col-xl-4">
               <div class="submit-field">
                 <h5>Select Storage</h5>
-                <select [(ngModel)]="storage" name="storage" title="Select Storage">
+                <select data-dropup-auto="false" data-size="3" [(ngModel)]="storage" name="storage" title="Select Storage">
                   <option *ngFor="let storage of state.googleAccounts" [ngValue]="storage.name" selected>{{storage.name}}</option>
                 </select>
               </div>
